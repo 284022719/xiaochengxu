@@ -1,0 +1,18 @@
+<view class="container">
+  <view class="card">
+    <view class="section-title">提交服务</view>
+    <input class="input" placeholder="标题（如：上门喂猫、代发快递）" value="{{title}}" data-key="title" bindinput="onInput" />
+    <textarea class="textarea" placeholder="描述（服务内容、时间、范围等）" value="{{desc}}" data-key="desc" bindinput="onInput" />
+
+    <view class="row">图片（最多3张）</view>
+    <view class="img-list">
+      <view class="thumb add" bindtap="chooseImage">+ 添加</view>
+      <view wx:for="{{images}}" wx:key="*this" class="thumb-wrap">
+        <image src="{{item}}" class="thumb" mode="aspectFill" data-current="{{item}}" bindtap="previewImage" />
+        <view class="del" data-index="{{index}}" bindtap="removeImage">×</view>
+      </view>
+    </view>
+
+    <button class="btn-primary" loading="{{submitting}}" bindtap="submit">提交服务</button>
+  </view>
+</view>

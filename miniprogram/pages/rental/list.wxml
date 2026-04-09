@@ -1,0 +1,60 @@
+<!--pages/rental/list.wxml-->
+<view class="container">
+  <view wx:if="{{!list.length}}" class="muted" style="margin-top: 20rpx;">暂无已审核发布内容</view>
+
+  <block wx:for="{{list}}" wx:key="_id">
+    <view class="card {{item.rented ? 'card-done' : ''}}">
+      <view class="publisher-row">
+        <image wx:if="{{item.avatarUrl}}" class="publisher-avatar" src="{{item.avatarUrl}}" mode="aspectFill" />
+        <view wx:else class="publisher-avatar placeholder-avatar">友</view>
+        <text class="publisher-name">{{item.nickName || "微信用户"}}</text>
+      </view>
+      <view class="title">{{item.title || item.community}}</view>
+      <view class="row" wx:if="{{item.desc}}">{{item.desc}}</view>
+      <view class="row" wx:if="{{item.price}}">租金：¥{{item.price}} / 月</view>
+      <view class="row" wx:if="{{item.startDate}}">起租日期：{{item.startDate}}</view>
+      <view class="row muted">发布时间：{{item.showTime}}</view>
+      <view class="img-list">
+        <image
+          wx:for="{{item.images}}"
+          wx:key="*this"
+          src="{{item}}"
+          mode="aspectFill"
+          class="thumb"
+          data-urls="{{item.images}}"
+          data-current="{{item}}"
+          bindtap="previewImage"
+        />
+      </view>
+      <view wx:if="{{(openid && openid === item._openid) || isAdmin}}" class="owner-actions">
+        <button
+          wx:if="{{openid && openid === item._openid}}"
+          size="mini"
+          data-id="{{item._id}}"
+          data-rented="{{item.rented}}"
+          bindtap="toggleRented"
+        >
+          {{item.rented ? "改为招租中" : "标记已出租"}}
+        </button>
+        <button
+          wx:if="{{openid && openid === item._openid}}"
+          size="mini"
+          data-id="{{item._id}}"
+          bindtap="editItem"
+        >
+          编辑
+        </button>
+        <button
+          size="mini"
+          type="warn"
+          data-id="{{item._id}}"
+          bindtap="deleteItem"
+        >
+          {{isAdmin && !(openid && openid === item._openid) ? "管理员删除" : "删除"}}
+        </button>
+      </view>
+    </view>
+  </block>
+
+  <fab-plus text="提交房屋信息" bind:tap="toPublish" />
+</view>

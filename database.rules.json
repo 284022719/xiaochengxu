@@ -1,0 +1,40 @@
+{
+  "rules": {
+    "secondhand": {
+      ".read": "true",
+      ".write": "auth != null && auth.openid == doc._openid"
+    },
+    "rental": {
+      ".read": "true",
+      ".write": "auth != null && auth.openid == doc._openid"
+    },
+    "community": {
+      ".read": "true",
+      ".write": "auth != null && auth.openid == 'olxg13YwLHevaY7qYxzN14xEeBbk'"
+    },
+    "service_posts": {
+      ".read": "true",
+      ".write": "auth != null && auth.openid == doc._openid"
+    },
+    "service_comments": {
+      ".read": "true",
+      ".write": "auth != null && auth.openid == doc._openid"
+    },
+    "service_reactions": {
+      ".read": "auth != null && auth.openid == doc._openid",
+      ".write": "auth != null && auth.openid == doc._openid"
+    },
+    "life_news": {
+      ".read": "true",
+      ".write": "auth != null && auth.openid == doc._openid"
+    },
+    "life_news_comments": {
+      ".read": "true",
+      ".write": "auth != null && auth.openid == doc._openid"
+    },
+    "life_news_reactions": {
+      ".read": "auth != null && auth.openid == doc._openid",
+      ".write": "auth != null && auth.openid == doc._openid"
+    }
+  }
+}

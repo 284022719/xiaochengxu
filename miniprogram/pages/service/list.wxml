@@ -1,0 +1,88 @@
+<view class="container">
+  <view wx:if="{{!list.length}}" class="muted">暂无服务信息</view>
+
+  <block wx:for="{{list}}" wx:key="_id">
+    <view class="card">
+      <view class="publisher-row">
+        <image wx:if="{{item.avatarUrl}}" class="publisher-avatar" src="{{item.avatarUrl}}" mode="aspectFill" />
+        <view wx:else class="publisher-avatar placeholder-avatar">友</view>
+        <text class="publisher-name">{{item.nickName || "微信用户"}}</text>
+      </view>
+      <view class="title">{{item.title}}</view>
+      <view class="row" wx:if="{{item.desc}}">{{item.desc}}</view>
+      <view class="row muted">发布时间：{{item.showTime}}</view>
+
+      <view class="img-list">
+        <image
+          wx:for="{{item.images}}"
+          wx:key="*this"
+          src="{{item}}"
+          mode="aspectFill"
+          class="thumb"
+          data-urls="{{item.images}}"
+          data-current="{{item}}"
+          bindtap="previewImage"
+        />
+      </view>
+
+      <view class="reaction-row">
+        <button
+          class="reaction-btn {{item.myReaction === 'like' ? 'reaction-btn-like-active' : ''}}"
+          size="mini"
+          data-postid="{{item._id}}"
+          data-type="like"
+          bindtap="toggleReaction"
+        >
+          {{item.myReaction === "like" ? "取消赞" : "点赞"}}({{item.likeCount}})
+        </button>
+        <button
+          class="reaction-btn {{item.myReaction === 'dislike' ? 'reaction-btn-dislike-active' : ''}}"
+          size="mini"
+          data-postid="{{item._id}}"
+          data-type="dislike"
+          bindtap="toggleReaction"
+        >
+          {{item.myReaction === "dislike" ? "取消踩" : "点踩"}}({{item.dislikeCount}})
+        </button>
+        <button
+          wx:if="{{item.canDelete}}"
+          size="mini"
+          type="warn"
+          data-id="{{item._id}}"
+          bindtap="deletePost"
+        >
+          删除
+        </button>
+      </view>
+
+      <view class="comment-title">评论</view>
+      <block wx:for="{{item.comments}}" wx:key="_id">
+        <view class="comment-item">
+          <text>{{item.content}}</text>
+          <text class="muted">{{item.showTime}}</text>
+          <text
+            wx:if="{{item.canDelete}}"
+            class="comment-del"
+            data-id="{{item._id}}"
+            bindtap="deleteComment"
+          >
+            删除
+          </text>
+        </view>
+      </block>
+
+      <view class="comment-input-row">
+        <input
+          class="comment-input"
+          placeholder="写评论..."
+          data-postid="{{item._id}}"
+          value="{{commentInputMap[item._id]}}"
+          bindinput="onCommentInput"
+        />
+        <button class="send-btn" size="mini" data-postid="{{item._id}}" bindtap="submitComment">发送</button>
+      </view>
+    </view>
+  </block>
+
+  <fab-plus text="提交服务" bind:tap="toPublish" />
+</view>

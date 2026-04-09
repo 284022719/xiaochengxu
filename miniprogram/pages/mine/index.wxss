@@ -1,0 +1,57 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12rpx;
+  padding-top: 8rpx;
+  padding-bottom: 8rpx;
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background: #f3f4f6;
+  border: 4rpx solid #e8eefc;
+}
+
+.name {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #111827;
+}
+
+.card button {
+  margin-right: 12rpx;
+  margin-top: 10rpx;
+  border-radius: 999rpx;
+  border: 1rpx solid #dbe3ef;
+  background: #f8fbff;
+  color: #334155;
+}
+
+.card button[type="warn"] {
+  background: #fff1f2;
+  color: #dc2626;
+  border: 1rpx solid #fecdd3;
+}
+
+.section-idle {
+  border-left: 8rpx solid #2563eb;
+  padding-left: 12rpx;
+}
+
+.section-house {
+  border-left: 8rpx solid #16a34a;
+  padding-left: 12rpx;
+}
+
+.section-service {
+  border-left: 8rpx solid #7c3aed;
+  padding-left: 12rpx;
+}
+
+.section-news {
+  border-left: 8rpx solid #ea580c;
+  padding-left: 12rpx;
+}

@@ -1,0 +1,10 @@
+node_modules/
+output/
+keys/
+
+*.log
+.DS_Store
+Thumbs.db
+
+project.private.config.json
+miniprogram/private.config.json

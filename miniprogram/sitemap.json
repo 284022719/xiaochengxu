@@ -1,0 +1,9 @@
+{
+  "desc": "小区生活资讯 sitemap",
+  "rules": [
+    {
+      "action": "allow",
+      "page": "*"
+    }
+  ]
+}

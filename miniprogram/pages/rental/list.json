@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "房屋信息",
+  "usingComponents": {
+    "fab-plus": "/components/fab-plus/index"
+  }
+}

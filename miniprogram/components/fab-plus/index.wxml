@@ -1,0 +1,4 @@
+<view class="fab" bindtap="onTap">
+  <text class="plus">+</text>
+  <text class="txt">{{text}}</text>
+</view>

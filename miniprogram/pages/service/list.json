@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "群友服务",
+  "usingComponents": {
+    "fab-plus": "/components/fab-plus/index"
+  }
+}

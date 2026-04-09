@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "闲置信息",
+  "usingComponents": {
+    "fab-plus": "/components/fab-plus/index"
+  }
+}

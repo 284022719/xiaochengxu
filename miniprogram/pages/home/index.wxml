@@ -1,0 +1,66 @@
+<!--pages/home/index.wxml-->
+<view class="container">
+  <view class="card">
+    <view class="title">{{groupTitle}}</view>
+    <view class="desc">{{groupDesc}}</view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">生活资讯</view>
+    <view wx:if="{{!newsList.length}}" class="muted">暂无生活资讯，欢迎发布</view>
+    <block wx:for="{{newsList}}" wx:key="_id">
+      <view class="news-item">
+        <view class="publisher-row">
+          <image wx:if="{{item.avatarUrl}}" class="publisher-avatar" src="{{item.avatarUrl}}" mode="aspectFill" />
+          <view wx:else class="publisher-avatar placeholder-avatar">友</view>
+          <text class="publisher-name">{{item.nickName || "微信用户"}}</text>
+        </view>
+        <view class="row news-title" wx:if="{{item.title}}">{{item.title}}</view>
+        <view class="row">{{item.content}}</view>
+        <view class="reaction-row">
+          <button
+            class="reaction-btn {{item.myReaction === 'like' ? 'reaction-btn-like-active' : ''}}"
+            size="mini"
+            data-newsid="{{item._id}}"
+            data-type="like"
+            bindtap="toggleReaction"
+          >
+            {{item.myReaction === "like" ? "取消赞" : "点赞"}}({{item.likeCount}})
+          </button>
+          <button
+            class="reaction-btn {{item.myReaction === 'dislike' ? 'reaction-btn-dislike-active' : ''}}"
+            size="mini"
+            data-newsid="{{item._id}}"
+            data-type="dislike"
+            bindtap="toggleReaction"
+          >
+            {{item.myReaction === "dislike" ? "取消踩" : "点踩"}}({{item.dislikeCount}})
+          </button>
+        </view>
+        <view class="comment-title">评论</view>
+        <block wx:for="{{item.comments}}" wx:key="_id">
+          <view class="comment-item">
+            <text>{{item.content}}</text>
+            <text class="muted">{{item.showTime}}</text>
+            <text wx:if="{{item.canDelete}}" class="comment-del" data-id="{{item._id}}" bindtap="deleteComment">删除</text>
+          </view>
+        </block>
+        <view class="comment-input-row">
+          <input
+            class="comment-input"
+            placeholder="写评论..."
+            data-newsid="{{item._id}}"
+            value="{{commentInputMap[item._id]}}"
+            bindinput="onCommentInput"
+          />
+          <button class="send-btn" size="mini" data-newsid="{{item._id}}" bindtap="submitComment">发送</button>
+        </view>
+        <view class="muted news-time">{{item.showTime}}</view>
+      </view>
+    </block>
+  </view>
+
+  <view class="bottom-actions">
+    <button class="btn-primary" bindtap="toNewsPublish">提交生活资讯</button>
+  </view>
+</view>

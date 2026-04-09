@@ -1,0 +1,21 @@
+<view class="container">
+  <view class="card">
+    <view class="section-title">提交生活资讯</view>
+    <input
+      class="textarea"
+      style="min-height:0;height:auto;margin-bottom:16rpx;"
+      placeholder="标题（简要概括）"
+      value="{{title}}"
+      data-key="title"
+      bindinput="onInput"
+    />
+    <textarea
+      class="textarea"
+      placeholder="任何你觉得对大家有帮助的信息"
+      value="{{content}}"
+      data-key="content"
+      bindinput="onInput"
+    />
+    <button class="btn-primary" loading="{{submitting}}" bindtap="submit">提交资讯</button>
+  </view>
+</view>

@@ -1,0 +1,119 @@
+.actions {
+  margin-top: 22rpx;
+}
+
+.bottom-actions {
+  margin: 4rpx 0 24rpx;
+}
+
+.bottom-actions .btn-primary {
+  width: 100%;
+}
+
+.desc {
+  line-height: 1.75;
+  color: #4b5563;
+}
+
+.news-item {
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid #eef2f7;
+}
+
+.publisher-row {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+  margin-bottom: 8rpx;
+}
+
+.publisher-avatar {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background: #eaeaea;
+}
+
+.placeholder-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 20rpx;
+}
+
+.publisher-name {
+  color: #4b5563;
+  font-size: 24rpx;
+}
+
+.news-title {
+  font-weight: 600;
+  color: #111827;
+}
+
+.reaction-row {
+  display: flex;
+  gap: 10rpx;
+  margin-top: 10rpx;
+}
+
+.reaction-btn {
+  background: #f3f6fb;
+  color: #475569;
+  border: 1rpx solid #dbe3ef;
+}
+
+.reaction-btn-like-active {
+  background: #e8f1ff;
+  color: #1d4ed8;
+  border: 1rpx solid #bcd6ff;
+}
+
+.reaction-btn-dislike-active {
+  background: #fff1f2;
+  color: #dc2626;
+  border: 1rpx solid #fecdd3;
+}
+
+.comment-title {
+  font-weight: 600;
+  margin: 14rpx 0 8rpx;
+  color: #374151;
+}
+
+.comment-item {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  margin-bottom: 8rpx;
+}
+
+.comment-del {
+  color: #fa5151;
+}
+
+.comment-input-row {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+  margin-top: 8rpx;
+}
+
+.comment-input {
+  flex: 1;
+  border: 1rpx solid #dbe3ef;
+  border-radius: 10rpx;
+  padding: 12rpx 14rpx;
+  background: #f9fbff;
+}
+
+.send-btn {
+  background: #2563eb;
+  color: #fff;
+  border: 1rpx solid #2563eb;
+}
+
+.news-time {
+  margin-top: 8rpx;
+}

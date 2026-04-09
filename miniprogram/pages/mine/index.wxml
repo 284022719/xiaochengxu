@@ -1,0 +1,82 @@
+<!--pages/mine/index.wxml-->
+<view class="container">
+  <view class="card profile">
+    <block wx:if="{{userInfo}}">
+      <image class="avatar" src="{{userInfo.avatarUrl}}" />
+      <view class="name">{{userInfo.nickName}}</view>
+    </block>
+    <block wx:else>
+      <view class="muted">未授权用户信息</view>
+    </block>
+  </view>
+
+  <view class="section-title section-idle">我发布的闲置物品</view>
+  <view wx:if="{{!secondhandList.length}}" class="muted">暂无数据</view>
+  <block wx:for="{{secondhandList}}" wx:key="_id">
+    <view class="card">
+      <view class="title">{{item.title}}</view>
+      <view class="row" wx:if="{{item.desc}}">{{item.desc}}</view>
+      <view class="row" wx:if="{{item.price}}">价格：¥{{item.price}}</view>
+      <view class="row">状态：{{item.sold ? "已出" : "在售"}}</view>
+      <view class="row muted">时间：{{item.showTime}}</view>
+      <button
+        size="mini"
+        data-id="{{item._id}}"
+        data-collection="secondhand"
+        data-field="sold"
+        data-value="{{!item.sold}}"
+        bindtap="updatePostStatus"
+      >
+        {{item.sold ? "改为在售" : "标记已出"}}
+      </button>
+      <button size="mini" data-id="{{item._id}}" bindtap="editSecondhand">编辑</button>
+      <button size="mini" type="warn" data-id="{{item._id}}" data-collection="secondhand" bindtap="deleteItem">删除</button>
+    </view>
+  </block>
+
+  <view class="section-title section-house">我发布的房屋信息</view>
+  <view wx:if="{{!rentalList.length}}" class="muted">暂无数据</view>
+  <block wx:for="{{rentalList}}" wx:key="_id">
+    <view class="card">
+      <view class="title">{{item.title || item.community}}</view>
+      <view class="row" wx:if="{{item.desc}}">{{item.desc}}</view>
+      <view class="row" wx:if="{{item.price}}">租金：¥{{item.price}} / 月</view>
+      <view class="row">状态：{{item.rented ? "已出租" : "招租中"}}</view>
+      <view class="row muted">时间：{{item.showTime}}</view>
+      <button
+        size="mini"
+        data-id="{{item._id}}"
+        data-collection="rental"
+        data-field="rented"
+        data-value="{{!item.rented}}"
+        bindtap="updatePostStatus"
+      >
+        {{item.rented ? "改为招租中" : "标记已出租"}}
+      </button>
+      <button size="mini" data-id="{{item._id}}" bindtap="editRental">编辑</button>
+      <button size="mini" type="warn" data-id="{{item._id}}" data-collection="rental" bindtap="deleteItem">删除</button>
+    </view>
+  </block>
+
+  <view class="section-title section-service">我发布的群友服务</view>
+  <view wx:if="{{!serviceList.length}}" class="muted">暂无数据</view>
+  <block wx:for="{{serviceList}}" wx:key="_id">
+    <view class="card">
+      <view class="title">{{item.title}}</view>
+      <view class="row" wx:if="{{item.desc}}">{{item.desc}}</view>
+      <view class="row muted">时间：{{item.showTime}}</view>
+      <button size="mini" type="warn" data-id="{{item._id}}" data-collection="service_posts" bindtap="deleteItem">删除</button>
+    </view>
+  </block>
+
+  <view class="section-title section-news">我发布的生活资讯</view>
+  <view wx:if="{{!newsList.length}}" class="muted">暂无数据</view>
+  <block wx:for="{{newsList}}" wx:key="_id">
+    <view class="card">
+      <view class="title">{{item.title || "生活资讯"}}</view>
+      <view class="row" wx:if="{{item.content}}">{{item.content}}</view>
+      <view class="row muted">时间：{{item.showTime}}</view>
+      <button size="mini" type="warn" data-id="{{item._id}}" data-collection="life_news" bindtap="deleteItem">删除</button>
+    </view>
+  </block>
+</view>

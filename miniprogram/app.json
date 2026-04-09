@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/secondhand/list",
+    "pages/rental/list",
+    "pages/service/list",
+    "pages/mine/index",
+    "pages/news/publish",
+    "pages/secondhand/publish",
+    "pages/rental/publish",
+    "pages/service/publish"
+  ],
+  "window": {
+    "navigationBarTitleText": "小区生活资讯",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f8f8f8"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#1aad19",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "资讯"
+      },
+      {
+        "pagePath": "pages/service/list",
+        "text": "服务"
+      },
+      {
+        "pagePath": "pages/secondhand/list",
+        "text": "闲置"
+      },
+      {
+        "pagePath": "pages/rental/list",
+        "text": "房屋"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

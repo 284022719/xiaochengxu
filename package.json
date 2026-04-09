@@ -1,0 +1,13 @@
+{
+  "name": "xiaoqu-life-info",
+  "version": "1.0.0",
+  "private": true,
+  "description": "WeChat mini program CI scripts",
+  "scripts": {
+    "mp:upload": "node scripts/ci-upload.js",
+    "mp:preview": "node scripts/ci-preview.js"
+  },
+  "devDependencies": {
+    "miniprogram-ci": "^2.1.31"
+  }
+}

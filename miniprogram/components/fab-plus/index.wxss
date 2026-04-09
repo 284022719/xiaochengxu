@@ -1,0 +1,24 @@
+.fab {
+  position: fixed;
+  right: 30rpx;
+  bottom: 120rpx;
+  z-index: 99;
+  height: 88rpx;
+  padding: 0 28rpx;
+  border-radius: 44rpx;
+  background: #1aad19;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 8rpx 20rpx rgba(26, 173, 25, 0.3);
+}
+
+.plus {
+  font-size: 40rpx;
+  margin-right: 10rpx;
+  line-height: 1;
+}
+
+.txt {
+  font-size: 28rpx;
+}

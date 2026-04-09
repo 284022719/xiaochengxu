@@ -1,0 +1,18 @@
+<!--pages/rental/publish.wxml-->
+<view class="container">
+  <view class="card">
+    <view class="section-title">{{isEdit ? content.sectionTitleEdit : content.sectionTitleCreate}}</view>
+    <view class="muted tip">{{content.tip}}</view>
+    <input class="input" placeholder="标题（如：转租/合租/求租/车位……）" value="{{title}}" data-key="title" bindinput="onInput" />
+    <textarea class="textarea" placeholder="描述（户型、面积、价格、位置、联系方式等）" value="{{desc}}" data-key="desc" bindinput="onInput" />
+    <view class="row">{{content.imageLabel}}</view>
+    <view class="img-list">
+      <view class="thumb add" bindtap="chooseImage">+ 添加</view>
+      <view wx:for="{{images}}" wx:key="*this" class="thumb-wrap">
+        <image src="{{item}}" class="thumb" mode="aspectFill" data-current="{{item}}" bindtap="previewImage" />
+        <view class="del" data-index="{{index}}" bindtap="removeImage">×</view>
+      </view>
+    </view>
+    <button class="btn-primary" loading="{{submitting}}" bindtap="submit">{{isEdit ? content.submitTextEdit : content.submitTextCreate}}</button>
+  </view>
+</view>
